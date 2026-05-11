@@ -27,13 +27,13 @@ for page in range(pages):
 
     soup = BeautifulSoup(r.text, "html.parser")
 
-    # get usernames
+    # Get usernames
     unames = soup.find_all("a", class_="author")
     for u in unames:
         all_usernames.append(u.text)
         print(u.text)
 
-    # get the "after" cursor for next page
+  
     next_btn = soup.find("span", class_="next-button")
     if next_btn:
         after = next_btn.find("a")["href"].split("after=")[-1]
